@@ -1,6 +1,6 @@
-
-function Home() {
-    return ( <div>Home</div> );
+import NavBar from "../../components/NavBar";
+const Home = () => {
+    return ( <NavBar></NavBar>);
 }
 
 export default Home;
