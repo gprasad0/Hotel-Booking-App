@@ -1,6 +1,7 @@
-import NavBar from "../../components/NavBar";
+import NavBar from "../../components/navbar/NavBar";
+import Header from "../../components/header/Header";
 const Home = () => {
-    return ( <NavBar></NavBar>);
+    return ( <div><NavBar/><Header></Header></div> );
 }
 
 export default Home;
