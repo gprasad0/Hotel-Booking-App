@@ -3,12 +3,13 @@
     color: white;
     display:flex;
     justify-content: center;
+    position:relative;
+
 } 
 
 .headerContainer{
     width:100%;
     max-width: 1024px;
-    align-items: center;
     margin: 20px 0px 100px 0px;
 }
 
@@ -46,13 +47,40 @@
 
 .headerSearch{
     display:flex;
-    height:30px;
+    height:55px;
     border:3px solid #febb02;
     align-items: center;
     justify-content: space-around;
     background-color: white;
+    position:absolute;
+    bottom:-25px;
+    width:100%;
+    border-radius: 5px;
+    max-width:1024px;
+    padding:10px 0px;
 }
 
 .headerIcon{
     color:grey;
+}
+
+.headerSearchItem{
+    display:flex;
+    align-items: center;
+    gap:10px;
+}
+
+.headerSearchInput{
+    border:none;
+    outline:none;
+}
+
+.headerSearchText{
+    color:lightgray;
+    cursor:pointer; 
+}
+
+.date{
+    position: absolute;
+    top: 55px;
 }

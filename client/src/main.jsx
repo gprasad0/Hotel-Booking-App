@@ -6,7 +6,7 @@ import Hotel from './pages/hotel/Hotel';
 import List from './pages/list/List';
 import "./main.css"
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>

@@ -1,4 +1,6 @@
 import './header.css';
+import 'react-date-range/dist/styles.css'; // main css file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBed,
@@ -8,7 +10,18 @@ import {
   faPlane,
   faTaxi,
 } from '@fortawesome/free-solid-svg-icons';
+import { DateRange } from 'react-date-range';
+import { useState } from 'react';
+import { format } from 'date-fns'
 const Header = () => {
+  const [state, setState] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: 'selection',
+    },
+  ]);
+
   return (
     <div className='header'>
       <div className='headerContainer'>
@@ -42,7 +55,7 @@ const Header = () => {
         <button className='headerBtn'>Sign in / Register</button>
         <div className='headerSearch'>
           <div className='headerSearchItem'>
-            <FontAwesomeIcon icon={faBed} className='headerIcon'/>
+            <FontAwesomeIcon icon={faBed} className='headerIcon' />
             <input
               type='text'
               placeholder='Where are you going?'
@@ -51,13 +64,23 @@ const Header = () => {
           </div>
 
           <div className='headerSearchItem'>
-            <FontAwesomeIcon icon={faCalendarDays} className='headerIcon'/>
-            <span className='headerSearchText'>date to date</span>
+            <FontAwesomeIcon icon={faCalendarDays} className='headerIcon' />
+            <span className='headerSearchText'>{format(state[0].startDate,'MM/dd/yyyy')} to {format(state[0].endDate,'MM/dd/yyyy')}</span>
+            <DateRange
+              editableDateInputs={true}
+              onChange={(item) => setState([item.selection])}
+              moveRangeOnFirstSelection={false}
+              ranges={state}
+              className="date"
+            />
           </div>
 
           <div className='headerSearchItem'>
-            <FontAwesomeIcon icon={faPerson} className='headerIcon'/>
+            <FontAwesomeIcon icon={faPerson} className='headerIcon' />
             <span className='headerSearchText'>2 adults 2 children 1 room</span>
+          </div>
+          <div className='headerSearchItem'>
+            <span className='headerBtn'>Search</span>
           </div>
         </div>
       </div>
