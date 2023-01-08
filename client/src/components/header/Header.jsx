@@ -12,7 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { DateRange } from 'react-date-range';
 import { useState } from 'react';
-import { format } from 'date-fns'
+import { format } from 'date-fns';
 const Header = () => {
   const [state, setState] = useState([
     {
@@ -22,6 +22,8 @@ const Header = () => {
     },
   ]);
 
+  const [showDateRange, setShowDateRange] = useState(false);
+  const [people, setPeople] = useState({ adults: 0, children: 0, room: 0 });
   return (
     <div className='header'>
       <div className='headerContainer'>
@@ -65,19 +67,49 @@ const Header = () => {
 
           <div className='headerSearchItem'>
             <FontAwesomeIcon icon={faCalendarDays} className='headerIcon' />
-            <span className='headerSearchText'>{format(state[0].startDate,'MM/dd/yyyy')} to {format(state[0].endDate,'MM/dd/yyyy')}</span>
-            <DateRange
-              editableDateInputs={true}
-              onChange={(item) => setState([item.selection])}
-              moveRangeOnFirstSelection={false}
-              ranges={state}
-              className="date"
-            />
+            <span
+              onClick={() => setShowDateRange(!showDateRange)}
+              className='headerSearchText'
+            >
+              {format(state[0].startDate, 'MM/dd/yyyy')} to{' '}
+              {format(state[0].endDate, 'MM/dd/yyyy')}
+            </span>
+            {showDateRange && (
+              <DateRange
+                editableDateInputs={true}
+                onChange={(item) => setState([item.selection])}
+                moveRangeOnFirstSelection={false}
+                ranges={state}
+                className='date'
+              />
+            )}
           </div>
 
           <div className='headerSearchItem'>
             <FontAwesomeIcon icon={faPerson} className='headerIcon' />
-            <span className='headerSearchText'>2 adults 2 children 1 room</span>
+            <span className='headerSearchText'>
+              {`${people.adults} adults ${people.children} children ${people.room} room`}{' '}
+            </span>
+            <div className='options'>
+              <div className='optionItem'>
+                <span className='optionText'>Adults</span>
+                <button className='optionCounterButton'>-</button>
+                <span className='optioncounterNumber'>1 </span>
+                <button className='optionCounterButton'>+</button>
+              </div>
+              <div className='optionItem'>
+                <span className='optionText'>Children</span>
+                <button className='optionCounterButton'>-</button>
+                <span className='optioncounterNumber'>1 </span>
+                <button className='optionCounterButton'>+</button>
+              </div>
+              <div className='optionItem'>
+                <span className='optionText'>Room</span>
+                <button className='optionCounterButton'>-</button>
+                <span className='optioncounterNumber'>1 </span>
+                <button className='optionCounterButton'>+</button>
+              </div>
+            </div>
           </div>
           <div className='headerSearchItem'>
             <span className='headerBtn'>Search</span>
