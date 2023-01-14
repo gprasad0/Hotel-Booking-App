@@ -13,7 +13,7 @@ import {
 import { DateRange } from 'react-date-range';
 import { useState } from 'react';
 import { format } from 'date-fns';
-const Header = () => {
+const Header = ({type}) => {
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -43,7 +43,7 @@ const Header = () => {
 
   return (
     <div className='header'>
-      <div className='headerContainer'>
+      <div className={ type == "list" ? 'headerContainer list' : 'headerContainer'}>
         <div className='headerList'>
           <div className='headerListItem active'>
             <FontAwesomeIcon icon={faBed} />
@@ -66,6 +66,9 @@ const Header = () => {
             <span>Airport Taxis</span>
           </div>
         </div>
+        {type !== "list" &&
+
+        <>
         <h1 className='headerTitle'>A lifetime of discounts? It's Genius</h1>
         <p className='headerDesc'>
           Get rewarded for travels - unlock nstant savings of 10% or more with a
@@ -182,6 +185,7 @@ const Header = () => {
             <span className='headerBtn'>Search</span>
           </div>
         </div>
+        </>}
       </div>
     </div>
   );
