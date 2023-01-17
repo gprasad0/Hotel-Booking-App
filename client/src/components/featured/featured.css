@@ -5,4 +5,28 @@
     display:flex;
     justify-content: space-between;
     gap: 20px;
+    z-index: 1;
+    margin-bottom: 20px;
+    /* position:relative; */
+}
+
+.featuredItem{
+    width:30%;
+    position: relative;
+}
+
+.fetauredTitles{
+    position:absolute;
+    bottom: 25px;
+    left: 24px;
+    color: white;
+    font-family: sans-serif;
+
+}
+
+.featuredImg{
+    width:100%;
+    /* object-fit: cover; */
+    border-radius: 8px;
+    /* position:absolute;  */
 }

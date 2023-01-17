@@ -88,6 +88,8 @@
 .date{
     position: absolute;
     top: 55px;
+    z-index: 2;
+    
 }
 
 .options{
@@ -98,6 +100,7 @@
     color:grey;
     border-radius: 5px;
     align-items: center;
+    z-index: 2;
 }
 
 .optionItem{
