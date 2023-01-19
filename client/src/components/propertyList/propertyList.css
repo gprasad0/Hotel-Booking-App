@@ -1,0 +1,13 @@
+.pList{
+    display:flex;
+    gap:20px;
+    width:100%;
+    max-width: 1024px;
+    justify-content: space-between;
+}
+
+
+.pListImg{
+    width:240px;
+    border-radius: 8px;
+}
