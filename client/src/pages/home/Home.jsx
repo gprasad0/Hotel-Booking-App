@@ -12,6 +12,7 @@ const Home = () => {
           <Featured />
           <h1 className='homeTitle'>Browse by Property types </h1>
           <PropertyList />
+          <h1 className='homeTitle'>Homes guests love </h1>
       </div>
     </div>
   );
